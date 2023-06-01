@@ -26,8 +26,12 @@ export default function GlowButton() {
         gsap.to(button, {
           '--button-glow': chroma
             .mix(
-              getComputedStyle(button).getPropertyValue('--button-glow-start').trim(),
-              getComputedStyle(button).getPropertyValue('--button-glow-end').trim(),
+              getComputedStyle(button)
+                .getPropertyValue('--button-glow-start')
+                .trim(),
+              getComputedStyle(button)
+                .getPropertyValue('--button-glow-end')
+                .trim(),
               x / rect.width
             )
             .hex(),
@@ -38,8 +42,10 @@ export default function GlowButton() {
   }, []);
 
   return (
-    <button className="glow-button">
-      <span>Button</span>
-    </button>
+    <div className="mb-16 px-14">
+      <button className="glow-button">
+        <span>Button</span>
+      </button>
+    </div>
   );
 }
