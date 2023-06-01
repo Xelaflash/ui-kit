@@ -11,6 +11,9 @@ const meta: Meta<typeof Button> = {
     backgroundColor: {
       control: 'color',
     },
+    color: {
+      control: 'color',
+    },
   },
 };
 
@@ -20,19 +23,21 @@ type Story = StoryObj<typeof Button>;
 // More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
 export const Primary: Story = {
   args: {
-    primary: true,
+    primary: 'primary',
     label: 'Click Me!',
   },
 };
 
-export const Secondary: Story = {
+export const Ghost: Story = {
   args: {
+    primary: 'ghost',
     label: 'Click Me!',
   },
 };
 
-export const Large: Story = {
+export const Gradient: Story = {
   args: {
+    primary: 'gradient',
     size: 'large',
     label: 'Click Me!',
   },
@@ -44,7 +49,14 @@ export const Small: Story = {
     label: 'Click Me!',
   },
 };
-export const Glow: Story = {
+
+export const Medium: Story = {
+  args: {
+    size: 'medium',
+    label: 'Click Me!',
+  },
+};
+export const Large: Story = {
   args: {
     size: 'large',
     label: 'Click Me!',
