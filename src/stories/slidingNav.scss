@@ -1,0 +1,39 @@
+.wrapper {
+  display: flex;
+  margin: 0 auto;
+  position: relative;
+  height: 4rem;
+  width: 750px;
+  border-radius: 10rem;
+  padding: 0 0.5rem;
+}
+
+.overlay {
+  display: flex;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  padding: 0.7rem 0;
+  border-radius: 1.5rem;
+  z-index: 1;
+}
+
+.inner-overlay {
+  height: 100%;
+  width: 100%;
+  border-radius: 1.5rem;
+}
+
+.tab {
+  width: 140px;
+  border: none;
+  margin: auto;
+  cursor: pointer;
+  user-select: none;
+  font-size: 1.2rem;
+  text-align: center;
+  background-color: transparent;
+  z-index: 2;
+}
