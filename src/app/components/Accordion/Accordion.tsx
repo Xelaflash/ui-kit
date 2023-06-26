@@ -1,3 +1,5 @@
+'use client';
+
 import { gsap } from 'gsap';
 import style from './Accordion.module.scss';
 import { useRef, useState } from 'react';

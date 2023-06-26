@@ -13,9 +13,14 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const timestamp = new Date().toLocaleString();
+
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        {children}
+        <footer>{timestamp}</footer>
+      </body>
     </html>
   );
 }
