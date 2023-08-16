@@ -1,4 +1,6 @@
-import React, { useEffect, useRef, useState } from 'react';
+'use client';
+
+import React, { use, useEffect, useRef, useState } from 'react';
 import './slidingNav.scss';
 
 interface ButtonProps {
