@@ -5,7 +5,24 @@ import { X } from 'react-feather';
 import VisuallyHidden from '../VisuallyHidden/VisuallyHidden';
 import styles from './ReadingList.module.scss';
 
-function ReadingList({ books, handleRemoveBook }) {
+// should be in a separate file but for the sake of the example
+interface Book {
+  isbn: string;
+  name: string;
+  author: string;
+  abstract: string;
+  coverSrc: string;
+  selected?: boolean;
+}
+
+type ReadingListProps = {
+  books: Book[];
+  handleRemoveBook: (book: Book) => void;
+};
+function ReadingList({
+  books,
+  handleRemoveBook,
+}: ReadingListProps): JSX.Element {
   return (
     <>
       <div className={styles.wrapper}>

@@ -2,7 +2,26 @@ import * as React from 'react';
 import { motion } from 'framer-motion';
 import styles from './BookGrid.module.scss';
 
-function BookGrid({ books, handleSelectBook, ...delegated }) {
+// should be in a separate file but for the sake of the example
+interface Book {
+  isbn: string;
+  name: string;
+  author: string;
+  abstract: string;
+  coverSrc: string;
+  selected?: boolean;
+}
+
+interface BookGridProps extends React.HTMLAttributes<HTMLElement> {
+  books: Book[];
+  handleSelectBook: (book: Book) => void;
+}
+
+function BookGrid({
+  books,
+  handleSelectBook,
+  ...delegated
+}: BookGridProps): JSX.Element {
   return (
     <section {...delegated}>
       <ul className={styles.wrapper}>
