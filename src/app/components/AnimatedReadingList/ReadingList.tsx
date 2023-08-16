@@ -23,14 +23,36 @@ function ReadingList({
   books,
   handleRemoveBook,
 }: ReadingListProps): JSX.Element {
+  const [highlightedIndex, setHighlightedIndex] = React.useState<Number | null>(
+    null
+  );
+
   return (
     <>
-      <div className={styles.wrapper}>
+      <div
+        className={styles.wrapper}
+        onMouseLeave={() => {
+          setHighlightedIndex(null);
+        }}
+      >
         <h2>Reading List</h2>
         <ol className={styles.books}>
           {books.map((book, bookIndex) => {
+            const reverseBookIndex = books.length - bookIndex - 1;
+
+            let height = Math.max(50 - reverseBookIndex * 5, 10);
+
+            if (bookIndex === highlightedIndex) {
+              height = 100;
+            }
             return (
-              <li key={book.isbn}>
+              <li
+                key={book.isbn}
+                style={{ height: height }}
+                onMouseEnter={() => {
+                  setHighlightedIndex(bookIndex);
+                }}
+              >
                 <motion.img
                   layoutId={`book-cover-${book.isbn}`}
                   alt={book.name}
@@ -51,6 +73,9 @@ function ReadingList({
                     type: 'spring',
                     stiffness: 400,
                     damping: 60,
+                  }}
+                  onFocus={() => {
+                    setHighlightedIndex(bookIndex);
                   }}
                 >
                   <X />
